@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/pokeSignInFragment">
+    <fragment
+        android:id="@+id/pokeSignInFragment"
+        android:name="com.example.projectofinal.views.fragments.PokeSignInFragment"
+        android:label="fragment_poke_sign_in"
+        tools:layout="@layout/fragment_poke_sign_in" >
+        <action
+            android:id="@+id/action_pokeSignInFragment_to_pokeListFragment"
+            app:destination="@id/pokeListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pokeListFragment"
+        android:name="com.example.projectofinal.views.fragments.PokeListFragment"
+        android:label="fragment_poke_list"
+        tools:layout="@layout/fragment_poke_list" >
+        <action
+            android:id="@+id/action_pokeListFragment_to_allFragment"
+            app:destination="@id/allFragment" />
+        <action
+            android:id="@+id/action_pokeListFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
+        <action
+            android:id="@+id/action_pokeListFragment_to_recentFragment"
+            app:destination="@id/recentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allFragment"
+        android:name="com.example.projectofinal.views.fragments.AllFragment"
+        android:label="fragment_all"
+        tools:layout="@layout/fragment_all" />
+    <fragment
+        android:id="@+id/recentFragment"
+        android:name="com.example.projectofinal.views.fragments.RecentFragment"
+        android:label="fragment_recent"
+        tools:layout="@layout/fragment_recent" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.projectofinal.views.fragments.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
+</navigation>

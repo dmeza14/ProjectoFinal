@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/nav_all"
+        android:title="Todos"
+        android:icon="@drawable/ic_baseline_all"/>
+
+    <item android:id="@+id/nav_favoritos"
+        android:title="Favoritos"
+        android:icon="@drawable/ic_baseline_favorite"/>
+
+    <item android:id="@+id/nav_recientes"
+        android:title="Recientes"
+        android:icon="@drawable/ic_baseline_history"/>
+
+</menu>
