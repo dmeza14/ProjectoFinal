@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.example.projectofinal.R
 
@@ -16,9 +17,9 @@ class PokeSignInFragment: Fragment(R.layout.fragment_poke_sign_in) {
         signInButton = view.findViewById(R.id.signInButton)
 
         signInButton.setOnClickListener{
-           val action = PokeSignInFragmentDirections.actionPokeSignInFragmentToPokeListFragment()
-            findNavController().navigate(action)
 
+            val action = PokeSignInFragmentDirections.actionPokeSignInFragmentToDetailedActivity()
+            findNavController().navigate(action)
         }
     }
 }
