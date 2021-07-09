@@ -3,4 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/inner_nav_graph"
-    app:startDestination="@id/nav_graph"/>
+    app:startDestination="@id/nav_all">
+    <fragment
+        android:id="@+id/nav_all"
+        android:name="com.example.projectofinal.views.fragments.AllFragment"
+        android:label="Todos"
+        tools:layout="@layout/fragment_all" />
+    <fragment
+        android:id="@+id/nav_favoritos"
+        android:name="com.example.projectofinal.views.fragments.FavoritesFragment"
+        android:label="Favoritos"
+        tools:layout="@layout/fragment_favorites" />
+    <fragment
+        android:id="@+id/nav_recientes"
+        android:name="com.example.projectofinal.views.fragments.RecentFragment"
+        android:label="Recientes"
+        tools:layout="@layout/fragment_recent" />
+</navigation>
