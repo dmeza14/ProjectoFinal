@@ -20,6 +20,7 @@ class DetailedActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.inner_nav_host) as NavHostFragment
         val navController = navHostFragment.findNavController()
+        //Esto es para que el label de cada fragmento se vea en el toolbar
         val appBarConfiguration: AppBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_all, R.id.nav_recientes, R.id.nav_favoritos
