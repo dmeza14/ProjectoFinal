@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectofinal.R
-import com.example.projectofinal.views.models.PokemonList
+import com.example.projectofinal.network.models.PokemonList
 import com.squareup.picasso.Picasso
 
 //Implementamos el adapter para pintar el RecyclerView
@@ -19,7 +19,6 @@ class PokemonListAdapter : RecyclerView.Adapter<PokemonListAdapter.PokemonViewHo
             field = value
             notifyDataSetChanged()
         }
-
     //Creamos el ViewHolder, encargado de pintar y escuchar clicks de cada celda
     inner class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var pokemonNameTextView: TextView = itemView.findViewById(R.id.pokemon_cell_name)
@@ -30,14 +29,15 @@ class PokemonListAdapter : RecyclerView.Adapter<PokemonListAdapter.PokemonViewHo
             //Llenamos los campos de la celda
             pokemonNameTextView.text = model.name
             pokemonSubtitleTextView.text = model.subtitle
-            Picasso.get().load(model.imageUrl).into(pokemonImageView)
+            Picasso.get()
+                .load(model.imageUrl)
+                .into(pokemonImageView)
         }
-
     }
     //Inflamos la vista de la celda y la pasamos al ViewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
-        val holdeView = LayoutInflater.from(parent.context).inflate(R.layout.item_pokemon_cell, parent, false)
-        return PokemonViewHolder(holdeView)
+        val holderView = LayoutInflater.from(parent.context).inflate(R.layout.item_pokemon_cell, parent, false)
+        return PokemonViewHolder(holderView)
     }
     //Pintamos la información de la celda para cada posición
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
@@ -45,5 +45,4 @@ class PokemonListAdapter : RecyclerView.Adapter<PokemonListAdapter.PokemonViewHo
     }
     //Devolvemos el tamaño de la lista
     override fun getItemCount(): Int = pokemonList.size
-
 }

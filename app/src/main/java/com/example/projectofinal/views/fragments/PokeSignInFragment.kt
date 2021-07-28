@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import com.example.projectofinal.R
 import com.example.projectofinal.views.activities.DetailedActivity
 
@@ -19,11 +17,9 @@ class PokeSignInFragment: Fragment(R.layout.fragment_poke_sign_in) {
         signInButton = view.findViewById(R.id.signInButton)
 
         signInButton.setOnClickListener{
-
             requireActivity().run {
                 startActivity(Intent(this, DetailedActivity::class.java))
             }
-
         }
     }
 }
