@@ -4,4 +4,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="recientes">Recientes</string>
+    <string name="server_error_message">Error: No se ha podido conectar al servidor</string>
 </resources>

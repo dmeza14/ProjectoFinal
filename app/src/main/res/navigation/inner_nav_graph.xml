@@ -8,7 +8,11 @@
         android:id="@+id/nav_all"
         android:name="com.example.projectofinal.views.fragments.AllFragment"
         android:label="Todos"
-        tools:layout="@layout/fragment_all" />
+        tools:layout="@layout/fragment_all" >
+        <action
+            android:id="@+id/action_nav_all_to_pokemonDetailFragment"
+            app:destination="@id/pokemonDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_favoritos"
         android:name="com.example.projectofinal.views.fragments.FavoritesFragment"
@@ -19,4 +23,9 @@
         android:name="com.example.projectofinal.views.fragments.RecentFragment"
         android:label="Recientes"
         tools:layout="@layout/fragment_recent" />
+    <fragment
+        android:id="@+id/pokemonDetailFragment"
+        android:name="com.example.projectofinal.views.fragments.PokemonDetailFragment"
+        android:label="Detalles del Pokemon"
+        tools:layout="@layout/fragment_pokemon_detail" />
 </navigation>
