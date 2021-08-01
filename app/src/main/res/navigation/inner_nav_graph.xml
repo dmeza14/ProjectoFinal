@@ -27,5 +27,9 @@
         android:id="@+id/pokemonDetailFragment"
         android:name="com.example.projectofinal.views.fragments.PokemonDetailFragment"
         android:label="Detalles del Pokemon"
-        tools:layout="@layout/fragment_pokemon_detail" />
+        tools:layout="@layout/fragment_pokemon_detail" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>

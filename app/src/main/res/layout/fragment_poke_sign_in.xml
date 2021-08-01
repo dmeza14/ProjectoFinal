@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E3D561"
+    android:background="@drawable/nuevo_poke_xy"
     tools:context=".views.fragments.PokeSignInFragment">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.17000002">
+        app:layout_constraintVertical_bias="0.060000002">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:buttonTint="#3A4CCA"
-            android:text="Masculino"
+            android:text="Chico"
             app:useMaterialThemeColors="false" />
 
         <RadioButton
@@ -57,28 +57,33 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:buttonTint="#3A4CCA"
-            android:text="Femenino"
+            android:text="Chica"
             app:useMaterialThemeColors="false" />
     </RadioGroup>
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="190dp"
+        android:layout_marginEnd="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/app_start" />
+        app:srcCompat="@drawable/new_app_name" />
 
     <Button
         android:id="@+id/signInButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="134dp"
+        android:layout_height="115dp"
+        android:layout_marginBottom="140dp"
+        android:background="@drawable/circle"
         android:text="Entrar"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/entrenadorTextView"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="@+id/entrenadorTextView"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
@@ -86,9 +91,9 @@
         android:id="@+id/sexTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
         android:layout_marginBottom="1dp"
-        android:text="Sexo"
+        android:text="¿Eres chico o chica?:"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintStart_toStartOf="@+id/radioGroup" />

@@ -3,7 +3,6 @@ package com.example.projectofinal.views.fragments
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -18,7 +17,7 @@ import com.example.projectofinal.network.models.PokemonList
 import com.google.android.material.snackbar.Snackbar
 
 class AllFragment : Fragment(R.layout.fragment_all), PokemonListAdapter.OnItemClickListener {
-    private lateinit var pokemonRecylerView: RecyclerView
+    private lateinit var pokemonRecyclerView: RecyclerView
     private lateinit var viewModel: PokemonViewModel
     private lateinit var progressBar: ProgressBar
 
@@ -34,12 +33,12 @@ class AllFragment : Fragment(R.layout.fragment_all), PokemonListAdapter.OnItemCl
         super.onViewCreated(view, savedInstanceState)
 
         //Inflamos el RecyclerView y asignamos el adapter
-        pokemonRecylerView = view.findViewById(R.id.pokemon_recycler_view)
+        pokemonRecyclerView = view.findViewById(R.id.pokemon_recycler_view)
         progressBar = view.findViewById((R.id.progressBar))
-        pokemonRecylerView.addItemDecoration(DividerItemDecoration(requireContext(), VERTICAL))
-        pokemonRecylerView.adapter = adapter
+        pokemonRecyclerView.addItemDecoration(DividerItemDecoration(requireContext(), VERTICAL))
+        pokemonRecyclerView.adapter = adapter
 
-        viewModel.fetchPokemonList(500, 0)
+        viewModel.fetchPokemonList(100, 0)
         viewModel.pokemonListLiveData.observe(viewLifecycleOwner) {
             //pintamos la información
             adapter.pokemonList = newPokelist(it.results)
@@ -55,19 +54,20 @@ class AllFragment : Fragment(R.layout.fragment_all), PokemonListAdapter.OnItemCl
     }
 
     override fun onItemClick(position: Int) {
-        val action = AllFragmentDirections.actionNavAllToPokemonDetailFragment()
+        val action = AllFragmentDirections.actionNavAllToPokemonDetailFragment(1)
         findNavController().navigate(action)
     }
 
     //Function to fill the list that is used in the recycler view.
     private fun newPokelist(names: List<Results>): List<PokemonList> {
-        val list = ArrayList<PokemonList>()
+        var list = listOf<PokemonList>()
         for (i in names.indices) {
             val item = PokemonList(
                 names[i].name,
                 "Pokemon número ${i + 1}",
-                "https://pokeres.bastionbot.org/images/pokemon/${i + 1}.png"
-            ) //this number is offset+1
+                //this number is offset+1
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i+1}.png"
+            )
             list += item
         }
         return list

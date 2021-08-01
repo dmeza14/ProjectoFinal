@@ -23,7 +23,7 @@ class DetailedActivity : AppCompatActivity() {
         //Esto es para que el label de cada fragmento se vea en el toolbar
         val appBarConfiguration: AppBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_all, R.id.nav_recientes, R.id.nav_favoritos
+                R.id.nav_all, R.id.nav_recientes, R.id.nav_favoritos, R.id.pokemonDetailFragment
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

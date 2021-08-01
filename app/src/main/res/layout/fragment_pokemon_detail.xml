@@ -7,15 +7,68 @@
     android:background="#68399EF6"
     tools:context=".views.fragments.PokemonDetailFragment">
 
-    <TextView
-        android:layout_width="0dp"
+    <ImageView
+        android:id="@+id/normalPokeImageView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Details of the Pokemon go here"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/shinyPokeImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/normalTextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Normal"
+        app:layout_constraintEnd_toEndOf="@+id/normalPokeImageView"
+        app:layout_constraintStart_toStartOf="@+id/normalPokeImageView"
+        app:layout_constraintTop_toBottomOf="@+id/normalPokeImageView" />
+
+    <TextView
+        android:id="@+id/shinyTextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Shiny"
+        app:layout_constraintEnd_toEndOf="@+id/shinyPokeImageView"
+        app:layout_constraintStart_toStartOf="@+id/shinyPokeImageView"
+        app:layout_constraintTop_toBottomOf="@+id/shinyPokeImageView" />
+
+    <TextView
+        android:id="@+id/pokeCaracteristica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:text="Características"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        android:gravity="center"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pokeCaracteristicasTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="400dp"
+        android:text="Info here"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/pokeCaracteristica"
+        app:layout_constraintStart_toStartOf="@+id/pokeCaracteristica"
+        app:layout_constraintTop_toBottomOf="@+id/pokeCaracteristica" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
