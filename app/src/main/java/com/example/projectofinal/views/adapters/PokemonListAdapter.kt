@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectofinal.R
 import com.example.projectofinal.network.models.PokemonList
+import com.example.projectofinal.network.models.Results
 import com.squareup.picasso.Picasso
 
 //Implementamos el adapter para pintar el RecyclerView

@@ -20,6 +20,7 @@ class AllFragment : Fragment(R.layout.fragment_all), PokemonListAdapter.OnItemCl
     private lateinit var pokemonRecyclerView: RecyclerView
     private lateinit var viewModel: PokemonViewModel
     private lateinit var progressBar: ProgressBar
+    private var pokemonID: Int = 0
 
     //Declaramos el adapater
     private val adapter = PokemonListAdapter(this)
@@ -44,17 +45,23 @@ class AllFragment : Fragment(R.layout.fragment_all), PokemonListAdapter.OnItemCl
             adapter.pokemonList = newPokelist(it.results)
         }
 
-        viewModel.isLoading.observe(viewLifecycleOwner){
+        viewModel.isLoading.observe(viewLifecycleOwner) {
             progressBar.visibility = if (it) View.VISIBLE else View.GONE
         }
 
-        viewModel.serverError.observe(viewLifecycleOwner){
-            Snackbar.make(view, requireContext().getString(R.string.server_error_message), Snackbar.LENGTH_LONG).show()
+        viewModel.serverError.observe(viewLifecycleOwner) {
+            Snackbar.make(
+                view,
+                requireContext().getString(R.string.server_error_message),
+                Snackbar.LENGTH_LONG
+            ).show()
         }
+
     }
 
     override fun onItemClick(position: Int) {
-        val action = AllFragmentDirections.actionNavAllToPokemonDetailFragment(1)
+        //pasamos el ID del pokemon seleccionado en cada celda para obtener su información
+        val action = AllFragmentDirections.actionNavAllToPokemonDetailFragment(position + 1)
         findNavController().navigate(action)
     }
 
@@ -66,10 +73,12 @@ class AllFragment : Fragment(R.layout.fragment_all), PokemonListAdapter.OnItemCl
                 names[i].name,
                 "Pokemon número ${i + 1}",
                 //this number is offset+1
-                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i+1}.png"
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i + 1}.png"
             )
             list += item
         }
         return list
     }
+
+
 }

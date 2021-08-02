@@ -1,5 +1,6 @@
 package com.example.projectofinal.network
 
+import com.example.projectofinal.network.models.PokemonDescriptionResponse
 import com.example.projectofinal.network.models.PokemonListResponse
 import com.example.projectofinal.network.models.PokemonResponse
 import retrofit2.Call
@@ -17,7 +18,12 @@ interface ApiService {
 
     @GET("pokemon/{id}")
     fun getPokemon(
-        @Path("id") name: Int
+        @Path("id") id: Int
     ): Call<PokemonResponse>
+
+    @GET("characteristic/{id}")
+    fun getPokemonDescription(
+        @Path("id") id: Int
+    ): Call<PokemonDescriptionResponse>
 
 }

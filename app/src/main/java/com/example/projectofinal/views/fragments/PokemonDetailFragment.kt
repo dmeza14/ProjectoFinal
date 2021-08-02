@@ -38,12 +38,18 @@ class PokemonDetailFragment : Fragment(R.layout.fragment_pokemon_detail) {
 
             Picasso.get()
                 .load(it.sprites.front_shiny)
-                .resize(500,500)
+                .resize(400,400)
                 .into(shinyPokeImageView)
             Picasso.get()
                 .load(it.sprites.front_default)
-                .resize(500,500)
+                .resize(400,400)
                 .into(normalPokeImageView)
+        }
+
+        viewModel.fetchPokemonDescription(args.id)
+        viewModel.pokemonDescriptionLiveData.observe(viewLifecycleOwner) {
+            //pintamos la información
+            pokeDescriptionTextView.text = it.descriptions[1].description
         }
 
 

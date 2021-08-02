@@ -9,4 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="bar_color">#CDDC39</color>
     <color name="button_color">#00B8DA</color>
+    <color name="gradient_start">#F44336</color>
+    <color name="gradient_end">#3672F4</color>
+    <color name="gradient_start_all">#36CEF4</color>
+    <color name="gradient_end_all">#FFEB3B</color>
+    <color name="gradient_start_detail">#FF9800</color>
+    <color name="gradient_end_detail">#393636</color>
 </resources>
