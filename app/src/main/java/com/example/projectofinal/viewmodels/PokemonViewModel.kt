@@ -25,11 +25,6 @@ class PokemonViewModel: ViewModel() {
     //testing the list call
     val pokemonListLiveData: LiveData<PokemonListResponse> = _pokemonListLiveData
 
-    //For Pokemon description
-    private val _pokemonDescriptionLiveData = MutableLiveData<PokemonDescriptionResponse>()
-    val pokemonDescriptionLiveData: LiveData<PokemonDescriptionResponse> = _pokemonDescriptionLiveData
-
-
     //Progress bar loading
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
@@ -85,35 +80,6 @@ class PokemonViewModel: ViewModel() {
                 override fun onFailure(call: Call<PokemonListResponse>, t: Throwable) {
                     _isLoading.postValue(false)
                     _serverError.postValue(true)
-                    //servidor falla, no se pudo conectar
-                }
-
-            })
-
-    }
-
-    //For the pokemon description
-    fun fetchPokemonDescription(id: Int) {
-        //_isLoading.postValue(true)
-        retrofitProvider.getApiService()
-            .getPokemonDescription(id)
-            .enqueue(object : Callback<PokemonDescriptionResponse>{
-                override fun onResponse(
-                    call: Call<PokemonDescriptionResponse>,
-                    response: Response<PokemonDescriptionResponse>
-                ) {
-                    _isLoading.postValue(false)
-                    if (response.isSuccessful) {
-                        _pokemonDescriptionLiveData.postValue(response.body())
-                    } else {
-                       // _serverError.postValue(true)
-                        //servidor falla, por varias razones, por ejemplo no se armo bien el request
-                    }
-                }
-
-                override fun onFailure(call: Call<PokemonDescriptionResponse>, t: Throwable) {
-                   // _isLoading.postValue(false)
-                   // _serverError.postValue(true)
                     //servidor falla, no se pudo conectar
                 }
 
