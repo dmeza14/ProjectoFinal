@@ -16,6 +16,7 @@
         android:layout_marginEnd="32dp"
         android:hint="@string/entrenador"
         app:boxBackgroundColor="#F9F396"
+        app:hintTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,8 +24,11 @@
         app:layout_constraintVertical_bias="0.13999999">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/entrenadorEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black"
             android:textColorHint="@color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -50,6 +54,7 @@
             android:layout_height="match_parent"
             android:buttonTint="#3A4CCA"
             android:text="Chico"
+            android:textColor="@color/black"
             app:useMaterialThemeColors="false" />
 
         <RadioButton
@@ -58,6 +63,7 @@
             android:layout_height="match_parent"
             android:buttonTint="#3A4CCA"
             android:text="Chica"
+            android:textColor="@color/black"
             app:useMaterialThemeColors="false" />
     </RadioGroup>
 
@@ -93,6 +99,7 @@
         android:layout_marginBottom="1dp"
         android:text="¿Eres chico o chica?:"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintStart_toStartOf="@+id/radioGroup" />
 

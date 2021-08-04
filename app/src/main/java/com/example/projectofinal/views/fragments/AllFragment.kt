@@ -1,8 +1,11 @@
 package com.example.projectofinal.views.fragments
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -20,7 +23,8 @@ class AllFragment : Fragment(R.layout.fragment_all), PokemonListAdapter.OnItemCl
     private lateinit var pokemonRecyclerView: RecyclerView
     private lateinit var viewModel: PokemonViewModel
     private lateinit var progressBar: ProgressBar
-    private var pokemonID: Int = 0
+    private lateinit var sharedPref: SharedPreferences
+    private lateinit var saludarEntrenador: TextView
 
     //Declaramos el adapater
     private val adapter = PokemonListAdapter(this)
@@ -28,6 +32,7 @@ class AllFragment : Fragment(R.layout.fragment_all), PokemonListAdapter.OnItemCl
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this).get(PokemonViewModel::class.java)
+        sharedPref = requireActivity().getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,7 +43,8 @@ class AllFragment : Fragment(R.layout.fragment_all), PokemonListAdapter.OnItemCl
         progressBar = view.findViewById((R.id.progressBar))
         pokemonRecyclerView.addItemDecoration(DividerItemDecoration(requireContext(), VERTICAL))
         pokemonRecyclerView.adapter = adapter
-
+        saludarEntrenador = view.findViewById(R.id.saludarEntrenador)
+        //Ajustar manualmente la cantidad de Pokemones a desplegar en el recycler view
         viewModel.fetchPokemonList(100, 0)
         viewModel.pokemonListLiveData.observe(viewLifecycleOwner) {
             //pintamos la información
@@ -65,6 +71,24 @@ class AllFragment : Fragment(R.layout.fragment_all), PokemonListAdapter.OnItemCl
         findNavController().navigate(action)
     }
 
+    override fun onResume() {
+        super.onResume()
+        //Usando los valores del sign in - determinamos el saludo dependiendo si es chico o chica
+        val saludo = sharedPref.getString("ENTRENADOR_NAME", "") ?: ""
+        val esMasculino = sharedPref.getBoolean("MASCULINO_CHECKED", true) ?: true
+        val esFemenino = sharedPref.getBoolean("FEMENINO_CHECKED", false) ?: false
+        if (esMasculino == true){
+            saludarEntrenador.text = requireContext().getString(R.string.saludar_entrenador_text, saludo)
+            saludarEntrenador.visibility = if (saludo.isEmpty()) View.GONE else View.VISIBLE
+        }else if (esFemenino == true){
+            saludarEntrenador.text = requireContext().getString(R.string.saludar_entrenadora_text, saludo)
+            saludarEntrenador.visibility = if (saludo.isEmpty()) View.GONE else View.VISIBLE
+        }else{
+            saludarEntrenador.visibility = View.GONE
+        }
+
+    }
+
     //Function to fill the list that is used in the recycler view.
     private fun newPokelist(names: List<Results>): List<PokemonList> {
         var list = listOf<PokemonList>()
@@ -79,6 +103,5 @@ class AllFragment : Fragment(R.layout.fragment_all), PokemonListAdapter.OnItemCl
         }
         return list
     }
-
 
 }
