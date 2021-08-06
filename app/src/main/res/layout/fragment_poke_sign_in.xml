@@ -26,9 +26,11 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/entrenadorEditText"
             android:layout_width="match_parent"
+            android:maxLength="40"
+            android:maxLines="1"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textColorHighlight="@color/black"
+            android:textColorHighlight="@color/gradient_start_all"
             android:textColorHint="@color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -54,6 +56,7 @@
             android:layout_height="match_parent"
             android:buttonTint="#3A4CCA"
             android:text="Chico"
+            android:checked="false"
             android:textColor="@color/black"
             app:useMaterialThemeColors="false" />
 
@@ -63,6 +66,7 @@
             android:layout_height="match_parent"
             android:buttonTint="#3A4CCA"
             android:text="Chica"
+            android:checked="false"
             android:textColor="@color/black"
             app:useMaterialThemeColors="false" />
     </RadioGroup>

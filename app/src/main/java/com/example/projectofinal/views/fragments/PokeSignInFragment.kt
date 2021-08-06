@@ -42,7 +42,7 @@ class PokeSignInFragment: Fragment(R.layout.fragment_poke_sign_in) {
 
         //NEED TO WORK ON VALIDATIONS!!!
         signInButton.setOnClickListener{
-            if (entrenadorEditText.text.toString().isEmpty() && (!masculinoRadioButton.isChecked || femeninoRadioButton.isChecked)) {
+            if ((!masculinoRadioButton.isChecked && !femeninoRadioButton.isChecked) || entrenadorEditText.text.toString().isEmpty()) {
                 Snackbar.make(signInButton, "Campos requeridos faltantes", Snackbar.LENGTH_LONG).show()
             }else{
                 sharedPref.edit {
@@ -50,10 +50,11 @@ class PokeSignInFragment: Fragment(R.layout.fragment_poke_sign_in) {
                     putBoolean("MASCULINO_CHECKED",masculinoRadioButton.isChecked)
                     putBoolean("FEMENINO_CHECKED",femeninoRadioButton.isChecked)
                     apply()
+                    requireActivity().run {
+                        startActivity(Intent(this, DetailedActivity::class.java))
+                    }
                 }
-                requireActivity().run {
-                    startActivity(Intent(this, DetailedActivity::class.java))
-                }
+
             }
 
         }

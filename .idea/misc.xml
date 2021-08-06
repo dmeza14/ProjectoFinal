@@ -10,12 +10,16 @@
         <entry key="..\:/Users/damezaum/AndroidStudioProjects/ProjectoFinal/app/src/main/res/drawable/gradient_detail_fragment.xml" value="0.38333333333333336" />
         <entry key="..\:/Users/damezaum/AndroidStudioProjects/ProjectoFinal/app/src/main/res/drawable/gradient_favorites_fragment.xml" value="0.38333333333333336" />
         <entry key="..\:/Users/damezaum/AndroidStudioProjects/ProjectoFinal/app/src/main/res/drawable/gradient_recent_fragment.xml" value="0.38333333333333336" />
+        <entry key="..\:/Users/damezaum/AndroidStudioProjects/ProjectoFinal/app/src/main/res/drawable/ic_baseline_favorite_click.xml" value="0.37743589743589745" />
+        <entry key="..\:/Users/damezaum/AndroidStudioProjects/ProjectoFinal/app/src/main/res/layout/activity_detailed.xml" value="0.1984375" />
         <entry key="..\:/Users/damezaum/AndroidStudioProjects/ProjectoFinal/app/src/main/res/layout/activity_main.xml" value="0.20572916666666666" />
-        <entry key="..\:/Users/damezaum/AndroidStudioProjects/ProjectoFinal/app/src/main/res/layout/fragment_all.xml" value="0.36153846153846153" />
+        <entry key="..\:/Users/damezaum/AndroidStudioProjects/ProjectoFinal/app/src/main/res/layout/fragment_all.xml" value="0.36" />
         <entry key="..\:/Users/damezaum/AndroidStudioProjects/ProjectoFinal/app/src/main/res/layout/fragment_favorites.xml" value="0.36153846153846153" />
         <entry key="..\:/Users/damezaum/AndroidStudioProjects/ProjectoFinal/app/src/main/res/layout/fragment_poke_sign_in.xml" value="0.36153846153846153" />
         <entry key="..\:/Users/damezaum/AndroidStudioProjects/ProjectoFinal/app/src/main/res/layout/fragment_pokemon_detail.xml" value="0.36153846153846153" />
         <entry key="..\:/Users/damezaum/AndroidStudioProjects/ProjectoFinal/app/src/main/res/layout/fragment_recent.xml" value="0.3671875" />
+        <entry key="..\:/Users/damezaum/AndroidStudioProjects/ProjectoFinal/app/src/main/res/layout/item_favorites_cell.xml" value="0.3671875" />
+        <entry key="..\:/Users/damezaum/AndroidStudioProjects/ProjectoFinal/app/src/main/res/layout/item_pokemon_cell.xml" value="0.4" />
       </map>
     </option>
   </component>

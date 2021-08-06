@@ -50,7 +50,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/pokemon_subtitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/pokemon_cell_name"
-        app:srcCompat="@drawable/ic_baseline_favorite_click"
+        app:srcCompat="@drawable/ic_baseline_delete_click_icon"
         tools:ignore="VectorDrawableCompat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

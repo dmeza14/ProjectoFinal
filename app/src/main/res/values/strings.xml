@@ -8,4 +8,5 @@
     <string name="saludar_entrenador_text">¡Bienvenido %s!</string>
     <string name="saludar_entrenadora_text">¡Bienvenida %s!</string>
     <string name="entrenador_error">Campo requerido!</string>
+    <string name="Favoritos">Favoritos</string>
 </resources>

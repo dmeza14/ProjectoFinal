@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -17,6 +18,7 @@ import com.example.projectofinal.network.models.Results
 import com.example.projectofinal.viewmodels.PokemonViewModel
 import com.example.projectofinal.views.adapters.PokemonListAdapter
 import com.example.projectofinal.network.models.PokemonList
+import com.example.projectofinal.viewmodels.AllPokemonViewModel
 import com.google.android.material.snackbar.Snackbar
 
 class AllFragment : Fragment(R.layout.fragment_all), PokemonListAdapter.OnItemClickListener {
@@ -26,12 +28,16 @@ class AllFragment : Fragment(R.layout.fragment_all), PokemonListAdapter.OnItemCl
     private lateinit var sharedPref: SharedPreferences
     private lateinit var saludarEntrenador: TextView
 
+    //ViewModel para base de datos agregar a favoritos
+    private lateinit var allPokemonViewModel: AllPokemonViewModel
+
     //Declaramos el adapater
     private val adapter = PokemonListAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this).get(PokemonViewModel::class.java)
+        allPokemonViewModel = ViewModelProvider(this).get(AllPokemonViewModel::class.java)
         sharedPref = requireActivity().getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
     }
 
@@ -49,6 +55,8 @@ class AllFragment : Fragment(R.layout.fragment_all), PokemonListAdapter.OnItemCl
         viewModel.pokemonListLiveData.observe(viewLifecycleOwner) {
             //pintamos la información
             adapter.pokemonList = newPokelist(it.results)
+
+
         }
 
         viewModel.isLoading.observe(viewLifecycleOwner) {
